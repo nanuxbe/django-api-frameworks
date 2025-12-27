@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 RUN cargo install maturin --version 0.9.0 --locked
 
 # Final stage with Python
-FROM python:3.13-slim
+FROM python:3.14-slim
 
 # Copy Rust tools from builder
 COPY --from=builder /usr/local/cargo /usr/local/cargo

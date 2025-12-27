@@ -11,6 +11,7 @@
 - Add basic tests to ensure all APIs return the same data
 - Update to python 3.13
 - Update to Django 6.0 where possible
+- Refactor to use fat models and skinny views
 
 ## 0.1.0
 

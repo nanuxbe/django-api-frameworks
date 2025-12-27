@@ -26,6 +26,6 @@ class CarsSerializedOrJson(APIView):
 
 class CarsDictOrJson(APIView):
     def get(self, request: Request, *args, **kwargs) -> Response:
-        cars = Car.objects.all().select_related("model").as_dicts()
+        cars = Car.objects.all().as_dicts()
 
-        return OrJsonResponse({"results": list(cars)}, status=status.HTTP_200_OK)
+        return OrJsonResponse({"results": cars}, status=status.HTTP_200_OK)

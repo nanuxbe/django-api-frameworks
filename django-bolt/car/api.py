@@ -20,8 +20,13 @@ class CarSerializer(Serializer):
     color: str
 
 
-@api.get("/cars-serialized")
+@api.get("/cars")
 async def cars():
+    return await cars_serialized()
+
+
+@api.get("/cars-serialized")
+async def cars_serialized():
     cars = []
 
     async for car in Car.objects.with_annotations():

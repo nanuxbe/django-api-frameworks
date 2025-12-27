@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 """
-Skip ModelSerializer because it's much slower
+Skip ModelSerializer because it's much slower.
 """
 
 

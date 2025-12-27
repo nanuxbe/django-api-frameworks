@@ -24,29 +24,6 @@ wheels = [
 ]
 
 [[package]]
-name = "api-demo-django-shinobi"
-version = "0.1.0"
-source = { virtual = "." }
-dependencies = [
-    { name = "django" },
-    { name = "django-shinobi" },
-    { name = "faker" },
-    { name = "orjson" },
-    { name = "psycopg", extra = ["binary"] },
-    { name = "uvicorn", extra = ["standard"] },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "django", specifier = "==6.0" },
-    { name = "django-shinobi", specifier = "==1.4.0" },
-    { name = "faker", specifier = "==39.0.0" },
-    { name = "orjson", specifier = "==3.11.5" },
-    { name = "psycopg", extras = ["binary"], specifier = "==3.3.2" },
-    { name = "uvicorn", extras = ["standard"] },
-]
-
-[[package]]
 name = "asgiref"
 version = "3.11.0"
 source = { registry = "https://pypi.org/simple" }
@@ -101,6 +78,29 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/dc/c1/73fc6f2524ac424ff9514a4cae3774f3244e67cb5e606c9588cf77e12220/django_shinobi-1.4.0.tar.gz", hash = "sha256:8a9b10cf996e08120c8b399ac47e8bd4f99aa0d4516b90dd55676f71881e3e97", size = 3719280, upload-time = "2025-08-26T21:20:52.836Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/80/83/9d5da51836be6258f0af32008bceb0abf57ae73bf50a4e2c152fc511e6b2/django_shinobi-1.4.0-py3-none-any.whl", hash = "sha256:844044763d2bacf9d5a30cf00070896fcdd9a44f07be390bcc3051ef67ea98f9", size = 2429465, upload-time = "2025-08-26T21:20:51.112Z" },
+]
+
+[[package]]
+name = "django-shinobi-example"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "django" },
+    { name = "django-shinobi" },
+    { name = "faker" },
+    { name = "orjson" },
+    { name = "psycopg", extra = ["binary"] },
+    { name = "uvicorn", extra = ["standard"] },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "django", specifier = "==6.0" },
+    { name = "django-shinobi", specifier = "==1.4.0" },
+    { name = "faker", specifier = "==39.0.0" },
+    { name = "orjson", specifier = "==3.11.5" },
+    { name = "psycopg", extras = ["binary"], specifier = "==3.3.2" },
+    { name = "uvicorn", extras = ["standard"] },
 ]
 
 [[package]]

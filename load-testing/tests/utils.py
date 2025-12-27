@@ -7,22 +7,20 @@ import requests
 """
 Ports to project mapping:
 
-8000 - djangorestframework
-8001 - django-ninja
-8002 - fastapi
-8003 - 
+8001 - django
+8002 - django-ninja
+8003 - django-shinobi
 8004 - django-rapid
 8005 - django-bolt
-8006 - djrest2
-8007 - django-shinobi
-8008 - 
-8009 - django
+8006 - djangorestframework
+8007 - djrest2
+8099 - fastapi
 """
 
 # API configurations for different implementations
 API_CONFIGS = {
     "django": {
-        "base_url": "http://localhost:8009",
+        "base_url": "http://localhost:8001",
         "endpoints": [
             "/api/cars/sync/",
             "/api/cars/async/",
@@ -30,16 +28,8 @@ API_CONFIGS = {
             "/api/cars/asyncpg/",
         ],
     },
-    "djangorestframework": {
-        "base_url": "http://localhost:8000",
-        "endpoints": [
-            "/api/cars-serialized/",
-            "/api/cars-orjson/",
-            "/api/cars-dict-orjson/",
-        ],
-    },
     "django-ninja": {
-        "base_url": "http://localhost:8001",
+        "base_url": "http://localhost:8002",
         "endpoints": [
             "/api/cars/sync-with-schema/",
             "/api/cars/sync-without-schema/",
@@ -48,7 +38,7 @@ API_CONFIGS = {
         ],
     },
     "django-shinobi": {
-        "base_url": "http://localhost:8007",
+        "base_url": "http://localhost:8003",
         "endpoints": [
             "/api/cars/sync-with-schema/",
             "/api/cars/sync-without-schema/",
@@ -69,14 +59,23 @@ API_CONFIGS = {
             "/api/cars-dicts/",
         ],
     },
-    "djrest2": {
+    "djangorestframework": {
         "base_url": "http://localhost:8006",
         "endpoints": [
-            "/api/cars/",
+            "/api/cars-serialized/",
+            "/api/cars-orjson/",
+            "/api/cars-dict-orjson/",
+        ],
+    },
+    "djrest2": {
+        "base_url": "http://localhost:8007",
+        "endpoints": [
+            "/api/cars-json/",
+            "/api/cars-orjson/",
         ],
     },
     # "fastapi": {
-    #     "base_url": "http://localhost:8002",
+    #     "base_url": "http://localhost:8099",
     #     "endpoints": ["/api/cars/"]
     # },
 }

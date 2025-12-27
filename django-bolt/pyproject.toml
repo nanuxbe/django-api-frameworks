@@ -1,6 +1,7 @@
 [project]
-name = "api-demo-django-bolt"
+name = "django-bolt-example"
 version = "0.1.0"
+requires-python = ">=3.14"
 dependencies = [
     "faker==39.0.0",
     "uvicorn[standard]",
@@ -10,8 +11,17 @@ dependencies = [
     # library under test
     "django-bolt==0.4.7",
     "msgspec==0.20.0",
+    "httpx",
 ]
-requires-python = ">=3.14"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "pytest-django>=4.11.1",
+]
+
+[tool.pytest]
+DJANGO_SETTINGS_MODULE = "config.settings"
 
 [tool.uv]
 package = false

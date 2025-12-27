@@ -1,6 +1,5 @@
-from car.views import CarListingAPI
-from django.urls import path
+from django.urls import include, path
 
 urlpatterns = [
-    path("api/cars/", CarListingAPI.as_view()),
+    path("api/", include("car.urls")),
 ]

@@ -10,7 +10,7 @@ from car.models import Car, CarModel
 class Command(BaseCommand):
     def handle(self, *args: Any, **options: Any) -> str | None:
         self.bulk_create_car_models(200)
-        batch_count = 1  # 50
+        batch_count = 5  # 50
 
         for i in range(batch_count):
             print(f"Creating cars batch {i + 1}...")

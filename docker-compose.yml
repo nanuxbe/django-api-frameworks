@@ -18,30 +18,30 @@ services:
       timeout: 5s
       retries: 5
 
-  djangorestframework:
-    container_name: djangorestframework
+  django:
+    container_name: django
     build:
-      context: .
-      dockerfile: ./djangorestframework/Dockerfile
+      context: ./django
+      dockerfile: ./Dockerfile
     ports:
-      - "8000:8000"
+      - "8001:8000"
     environment:
       - DEBUG=False
     volumes:
-      - ./djangorestframework:/app
+      - ./django:/app
     command: uv run uvicorn config.asgi:application --host 0.0.0.0 --port 8000 --reload
     depends_on:
       - db
     networks:
       - django-api-frameworks
-
+  
   django-ninja:
     container_name: django-ninja
     build:
       context: .
       dockerfile: ./django-ninja/Dockerfile
     ports:
-      - "8001:8000"
+      - "8002:8000"
     environment:
       - DEBUG=False
     volumes:
@@ -52,18 +52,18 @@ services:
     networks:
       - django-api-frameworks
 
-  fastapi:
-    container_name: fastapi
+  django-shinobi:
+    container_name: django-shinobi
     build:
       context: .
-      dockerfile: ./fastapi/Dockerfile
+      dockerfile: ./django-shinobi/Dockerfile
     ports:
-      - "8002:8000"
+      - "8003:8000"
     environment:
       - DEBUG=False
     volumes:
-      - ./fastapi:/app
-    command: uv run fastapi dev main.py --host 0.0.0.0 --port 8000
+      - ./django-shinobi:/app
+    command: uv run uvicorn config.asgi:application --host 0.0.0.0 --port 8000 --reload
     depends_on:
       - db
     networks:
@@ -103,13 +103,30 @@ services:
     networks:
       - django-api-frameworks
 
+  djangorestframework:
+    container_name: djangorestframework
+    build:
+      context: .
+      dockerfile: ./djangorestframework/Dockerfile
+    ports:
+      - "8006:8000"
+    environment:
+      - DEBUG=False
+    volumes:
+      - ./djangorestframework:/app
+    command: uv run uvicorn config.asgi:application --host 0.0.0.0 --port 8000 --reload
+    depends_on:
+      - db
+    networks:
+      - django-api-frameworks
+
   djrest2:
     container_name: djrest2
     build:
       context: .
       dockerfile: ./djrest2/Dockerfile
     ports:
-      - "8006:8000"
+      - "8007:8000"
     environment:
       - DEBUG=False
     volumes:
@@ -120,35 +137,18 @@ services:
     networks:
       - django-api-frameworks
 
-  django-shinobi:
-    container_name: django-shinobi
+  fastapi:
+    container_name: fastapi
     build:
       context: .
-      dockerfile: ./django-shinobi/Dockerfile
+      dockerfile: ./fastapi/Dockerfile
     ports:
-      - "8007:8000"
+      - "8099:8000"
     environment:
       - DEBUG=False
     volumes:
-      - ./django-shinobi:/app
-    command: uv run uvicorn config.asgi:application --host 0.0.0.0 --port 8000 --reload
-    depends_on:
-      - db
-    networks:
-      - django-api-frameworks
-  
-  django:
-    container_name: django
-    build:
-      context: ./django
-      dockerfile: ./Dockerfile
-    ports:
-      - "8009:8000"
-    environment:
-      - DEBUG=False
-    volumes:
-      - ./django:/app
-    command: uv run uvicorn config.asgi:application --host 0.0.0.0 --port 8000 --reload
+      - ./fastapi:/app
+    command: uv run fastapi dev main.py --host 0.0.0.0 --port 8000
     depends_on:
       - db
     networks:

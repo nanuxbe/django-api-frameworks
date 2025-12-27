@@ -78,9 +78,11 @@ populate:
 
 # Run pytest tests
 test *ARGS='':
-  # docker exec -it djrest2 uv run pytest
-  # docker exec -it django-rapid uv run pytest
-  # docker exec -it django-drf uv run pytest
+  docker exec -it django uv run pytest
+  docker exec -it django-rapid uv run pytest
+  docker exec -it django-bolt uv run pytest
+  docker exec -it djangorestframework uv run pytest
+  docker exec -it djrest2 uv run pytest
   cd load-testing && uv run pytest {{ ARGS }}
 
 # Run benchmarks
