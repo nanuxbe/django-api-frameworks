@@ -28,18 +28,25 @@ A Locust API load testing tool is also included to run the tests. To ensure simi
 1. Install [`just`](https://just.systems/man/en/packages.html)
 2. `just up`: builds and starts all Docker containers
 3. `just populate`: populates the database with sample data
-4. `just test`: validates all APIs are returning the same data
-5. `just benchmark`: basic benchmarks
-6. Go to http://localhost:8089 to use `locust` for load testing
 
-### Validation
+## Tests
+
+### Validate
+
+Validates all APIs are returning the same data.
 
 ```bash
 just test
 ```
 
-### Benchmarks
+### Benchmark
+
+Runs basic benchmarks.
 
 ```bash
 just benchmark
 ```
+
+### Load Testing
+
+Go to http://localhost:8089 to use `locust` for load testing.

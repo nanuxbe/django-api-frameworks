@@ -82,12 +82,12 @@ test *ARGS='':
   docker exec -it django-rapid uv run pytest
   docker exec -it djangorestframework uv run pytest
   docker exec -it djrest2 uv run pytest
-  # docker exec -it django-bolt uv run pytest
+  docker exec -it django-bolt uv run pytest
   cd load-testing && uv run pytest {{ ARGS }}
 
 # Run benchmarks
 benchmark:
-  cd load-testing && uv run pytest --benchmark-only --benchmark-compare
+  cd load-testing && uv run pytest --benchmark-only --benchmark-compare --benchmark-columns 'min,max,mean,stddev,median'
 
 test-all:
   just test
