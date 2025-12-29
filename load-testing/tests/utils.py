@@ -22,10 +22,15 @@ API_CONFIGS = {
     "django": {
         "base_url": "http://localhost:8001",
         "endpoints": [
-            "/api/cars/sync/",
-            "/api/cars/async/",
-            "/api/cars/streaming/",
-            "/api/cars/asyncpg/",
+            "/api/cars-orjson-sync/",
+            "/api/cars-orjson-async/",
+            "/api/cars-streaming/",
+            "/api/cars-asyncpg/",
+            "/api/cars-msgspec/",
+            "/api/cars-json/",
+            "/api/cars-raw-sync/",
+            "/api/cars-postgres-json/",
+            "/api/cars-pydantic/",
         ],
     },
     "django-ninja": {
@@ -74,10 +79,12 @@ API_CONFIGS = {
             "/api/cars-orjson/",
         ],
     },
-    # "fastapi": {
-    #     "base_url": "http://localhost:8099",
-    #     "endpoints": ["/api/cars/"]
-    # },
+    "fastapi": {
+        "base_url": "http://localhost:8099",
+        "endpoints": [
+            "/api/cars/",
+        ],
+    },
 }
 
 FIELDS = [

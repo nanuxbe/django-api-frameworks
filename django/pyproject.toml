@@ -5,10 +5,13 @@ requires-python = "==3.14.*"
 dependencies = [
     "faker==39.0.0",
     "uvicorn[standard]",
-    "Django==6.0",
     "orjson==3.11.5",
     "psycopg[binary]==3.3.2",
     "asyncpg==0.31.0",
+    "msgspec==0.20.0",
+    "pydantic==2.12.5",
+    # library under test
+    "Django==6.0",
 ]
 
 [dependency-groups]
